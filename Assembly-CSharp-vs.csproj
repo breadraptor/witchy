@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BeachScript.cs" />
+     <Compile Include="Assets\Scripts\BeginGameScript.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\HatController.cs" />
      <Compile Include="Assets\Scripts\PermanentCanvasScript.cs" />
-     <Compile Include="Assets\Scripts\TimeController.cs" />
      <Compile Include="Assets\Scripts\ToBeach.cs" />
+     <None Include="Assets\items.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

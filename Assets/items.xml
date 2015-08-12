@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+	<name>Bay Leaf</name>
+	<type>Plant</type>
+	<desc>Has a pungent smell. Dried and used for flavoring food.</desc>
+	<edible>Yes</edible>
+	<white>80</white>
+	<blue>20</blue>
+	<green></green>
+	<yellow></yellow>
+	<orange></orange>
+	<red></red>
+	<violet></violet>
+	<black></black>
+</item>
+<item>
+	<name>Salt</name>
+	<type>Food</type>
+	<desc>Popular seasoning for food.</desc>
+	<edible>Yes</edible>
+	<white>50</white>
+	<blue></blue>
+	<green></green>
+	<yellow></yellow>
+	<orange></orange>
+	<red></red>
+	<violet></violet>
+	<black>50</black>
+</item>
+<item>
+	<name>Rosemary</name>
+	<type>Plant</type>
+	<desc>Multi-use plant for flavoring meat and decorating gardens.</desc>
+	<edible>Yes</edible>
+	<white>30</white>
+	<blue></blue>
+	<green></green>
+	<yellow>50</yellow>
+	<orange></orange>
+	<red>20</red>
+	<violet></violet>
+	<black></black>
+</item>
+<item>
+	<name>Blueberry</name>
+	<type>Food</type>
+	<desc>Delicious fruit used for all sorts of things.</desc>
+	<edible>Yes</edible>
+	<white></white>
+	<blue>30</blue>
+	<green></green>
+	<yellow></yellow>
+	<orange></orange>
+	<red></red>
+	<violet>70</violet>
+	<black></black>
+</item>
