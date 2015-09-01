@@ -14,7 +14,7 @@ public class CanvasBehavior : MonoBehaviour, IHasChanged {
 	}
 
 	public void onCauldronClick(){
-		//this.transform.FindChild("")
+		this.transform.FindChild("MakePotion").gameObject.SetActive(true);
 	}
 	
 	public void onBrewClick(){

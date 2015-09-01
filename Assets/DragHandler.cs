@@ -13,6 +13,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	{
 		itemBeingDragged = gameObject;
 		startPosition = transform.position;
+		//print (startPosition);
 		startParent = transform.parent;
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}

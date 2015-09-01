@@ -48,13 +48,13 @@
   <ItemGroup>
      <Compile Include="Assets\CanvasBehavior.cs" />
      <Compile Include="Assets\DragHandler.cs" />
-     <Compile Include="Assets\Inventory.cs" />
      <Compile Include="Assets\Scripts\BeachScript.cs" />
      <Compile Include="Assets\Scripts\BeginGameScript.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\HatController.cs" />
      <Compile Include="Assets\Scripts\ObjectScript.cs" />
      <Compile Include="Assets\Scripts\PermanentCanvasScript.cs" />
+     <Compile Include="Assets\Scripts\TimeController.cs" />
      <Compile Include="Assets\Scripts\ToBeach.cs" />
      <Compile Include="Assets\Slot.cs" />
      <None Include="Assets\items.xml" />
