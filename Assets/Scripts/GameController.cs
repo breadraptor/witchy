@@ -24,18 +24,18 @@ public class GameController : MonoBehaviour {
 			Destroy (gameObject);
 		}
 
-		//if (!Load ()){
+		if (!Load ()){
 			// new game	
-		BeginGame.SetActive (true);
+			BeginGame.SetActive (true);
 
-		//}
+		}
 	}
 
 	// Use this for initialization
 	void Start () {
-		//string date = System.DateTime.Now.Date.ToString ();
-		//TODO get rid of this when done testing beginning
-		File.Delete(Application.persistentDataPath + "/playerInfo.dat");
+		//for testing saves:
+		//File.Delete(Application.persistentDataPath + "/playerInfo.dat");
+
 		timeDisplay.text = System.DateTime.Now.ToShortTimeString();
 		InvokeRepeating("TimeUpdate", 0, 1.0f);
 	}

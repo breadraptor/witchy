@@ -222,6 +222,10 @@ public class BeginGameScript : MonoBehaviour {
 
 			}
 			finalQuestion.SetActive(true);
+			
+			if (tie.Count == 2){
+				finalQuestion.transform.FindChild("Answer3").gameObject.SetActive(false);
+			}
 			/* this would be the random way of solving a tie.
 			int rand = Random.Range (0, tie.Count);
 			foreach (string entry in tie){
