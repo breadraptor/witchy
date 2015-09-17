@@ -1,12 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DragHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CanvasBehavior.cs">
     <Files>
+      <File FileName="Assets\Scripts\NavigationScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\BeginGameScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\DragHandler.cs" Line="16" Column="5" />
       <File FileName="Assets\Scripts\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Slot.cs" Line="1" Column="1" />
-      <File FileName="Assets\CanvasBehavior.cs" Line="17" Column="69" />
+      <File FileName="Assets\Scripts\ToBeach.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CanvasBehavior.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\PermanentCanvasScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\InventoryScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

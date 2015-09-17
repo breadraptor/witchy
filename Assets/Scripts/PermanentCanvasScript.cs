@@ -16,4 +16,6 @@ public class PermanentCanvasScript : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
 }
