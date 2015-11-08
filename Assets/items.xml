@@ -1,57 +1,349 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item>
-	<name>Bay Leaf</name>
-	<type>Plant</type>
-	<desc>Has a pungent smell. Dried and used for flavoring food.</desc>
-	<edible>Yes</edible>
-	<white>80</white>
-	<blue>20</blue>
-	<green></green>
-	<yellow></yellow>
-	<orange></orange>
-	<red></red>
-	<violet></violet>
-	<black></black>
-</item>
-<item>
-	<name>Salt</name>
-	<type>Food</type>
-	<desc>Popular seasoning for food.</desc>
-	<edible>Yes</edible>
-	<white>50</white>
-	<blue></blue>
-	<green></green>
-	<yellow></yellow>
-	<orange></orange>
-	<red></red>
-	<violet></violet>
-	<black>50</black>
-</item>
-<item>
-	<name>Rosemary</name>
-	<type>Plant</type>
-	<desc>Multi-use plant for flavoring meat and decorating gardens.</desc>
-	<edible>Yes</edible>
-	<white>30</white>
-	<blue></blue>
-	<green></green>
-	<yellow>50</yellow>
-	<orange></orange>
-	<red>20</red>
-	<violet></violet>
-	<black></black>
-</item>
-<item>
-	<name>Blueberry</name>
-	<type>Food</type>
-	<desc>Delicious fruit used for all sorts of things.</desc>
-	<edible>Yes</edible>
-	<white></white>
-	<blue>30</blue>
-	<green></green>
-	<yellow></yellow>
-	<orange></orange>
-	<red></red>
-	<violet>70</violet>
-	<black></black>
-</item>
+<items>
+	<item id="1">
+		<name>Bay Leaf</name>
+		<type>Plant</type>
+		<desc>Has a pungent smell. Dried and used for flavoring food.</desc>
+		<edible>true</edible>
+		<white>80</white>
+		<blue>20</blue>
+		<green></green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="2">
+		<name>Salt</name>
+		<type>Food</type>
+		<desc>Popular seasoning for food.</desc>
+		<edible>true</edible>
+		<white>50</white>
+		<blue></blue>
+		<green></green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet></violet>
+		<black>50</black>
+		<value></value>
+	</item>
+	<item id="3">
+		<name>Rosemary</name>
+		<type>Plant</type>
+		<desc>Multi-use plant for flavoring meat and decorating gardens.</desc>
+		<edible>true</edible>
+		<white>30</white>
+		<blue></blue>
+		<green></green>
+		<yellow>50</yellow>
+		<orange></orange>
+		<red>20</red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="4">
+		<name>Blueberry</name>
+		<type>Food</type>
+		<desc>Delicious fruit used for all sorts of things.</desc>
+		<edible>true</edible>
+		<white></white>
+		<blue>30</blue>
+		<green></green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet>70</violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="5">
+		<name>Carnation</name>
+		<type>Plant</type>
+		<desc>A sweet-smelling decorative flower.</desc>
+		<edible>true</edible>
+		<white>20</white>
+		<blue></blue>
+		<green></green>
+		<yellow></yellow>
+		<orange></orange>
+		<red>80</red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="6">
+		<name>Sage</name>
+		<type>Plant</type>
+		<desc>Small herb with medical and culinary uses.</desc>
+		<edible>true</edible>
+		<white>20</white>
+		<blue>40</blue>
+		<green>40</green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="7">
+		<name>Dandelions</name>
+		<type>Plant</type>
+		<desc>Short, yellow flowering weed-like plant.</desc>
+		<edible>true</edible>
+		<white></white>
+		<blue></blue>
+		<green></green>
+		<yellow>80</yellow>
+		<orange>20</orange>
+		<red></red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="8">
+		<name>Lavender</name>
+		<type>Plant</type>
+		<desc>Multi-use herb with essential oils.</desc>
+		<edible>true</edible>
+		<white></white>
+		<blue></blue>
+		<green>30</green>
+		<yellow></yellow>
+		<orange></orange>
+		<red>10</red>
+		<violet>40</violet>
+		<black>20</black>
+		<value></value>
+	</item>
+	<item id="9">
+		<name>Rose</name>
+		<type>Plant</type>
+		<desc>A luscious flower with sharp thorns along its stem.</desc>
+		<edible>true</edible>
+		<white>10</white>
+		<blue></blue>
+		<green></green>
+		<yellow></yellow>
+		<orange>20</orange>
+		<red>60</red>
+		<violet></violet>
+		<black>10</black>
+		<value></value>
+	</item>
+	<item id="10">
+		<name>Walnut</name>
+		<type>Food</type>
+		<desc>A bumpy nut which actually starts off looking kinda like a lime. Weird right?</desc>
+		<edible>true</edible>
+		<white>80</white>
+		<blue></blue>
+		<green>20</green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="11">
+		<name>Chamomile</name>
+		<type>Plant</type>
+		<desc>A multi-faceted daisy-like plant.</desc>
+		<edible>true</edible>
+		<white>25</white>
+		<blue></blue>
+		<green>25</green>
+		<yellow>25</yellow>
+		<orange></orange>
+		<red></red>
+		<violet>25</violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="12">
+		<name>Cinnamon</name>
+		<type>Food</type>
+		<desc>True cinnamon found inside of a tree. Trust me, there are fakies.</desc>
+		<edible>true</edible>
+		<white></white>
+		<blue></blue>
+		<green>30</green>
+		<yellow>70</yellow>
+		<orange></orange>
+		<red></red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="13">
+		<name>Poppy</name>
+		<type>Plant</type>
+		<desc>A flower whos seeds are used in opiates.</desc>
+		<edible>false</edible>
+		<white>50</white>
+		<blue></blue>
+		<green></green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet></violet>
+		<black>50</black>
+		<value></value>
+	</item>
+	<item id="14">
+		<name>Grape</name>
+		<type>Food</type>
+		<desc>A sweet/sour fruit with tons of everyday uses.</desc>
+		<edible>true</edible>
+		<white></white>
+		<blue></blue>
+		<green>80</green>
+		<yellow></yellow>
+		<orange>10</orange>
+		<red></red>
+		<violet>10</violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="15">
+		<name>Honeysuckle</name>
+		<type>Plant</type>
+		<desc>A flower with sweet nectar and different species across the globe!</desc>
+		<edible>true</edible>
+		<white></white>
+		<blue>30</blue>
+		<green>35</green>
+		<yellow></yellow>
+		<orange>35</orange>
+		<red></red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="16">
+		<name>Yarrow</name>
+		<type>Plant</type>
+		<desc>Slightly odorus, poisonous to cats, and used for stanching blood flow. (that word is HILARIOUS you know which one im talking about)</desc>
+		<edible>true</edible>
+		<white></white>
+		<blue>50</blue>
+		<green>30</green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet></violet>
+		<black>20</black>
+		<value></value>
+	</item>
+	<item id="17">
+		<name>Strawberry</name>
+		<type>Food</type>
+		<desc>Tart red berry with small white flowers. Has a popular flavor!</desc>
+		<edible>true</edible>
+		<white>50</white>
+		<blue></blue>
+		<green></green>
+		<yellow></yellow>
+		<orange>50</orange>
+		<red></red>
+		<violet></violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="18">
+		<name>Lily</name>
+		<type>Plant</type>
+		<desc>Bulbous flower with a pungent smell and is toxic to most animals. Used for symbolism frequently.</desc>
+		<edible>true</edible>
+		<white>25</white>
+		<blue></blue>
+		<green></green>
+		<yellow>25</yellow>
+		<orange></orange>
+		<red></red>
+		<violet>25</violet>
+		<black>25</black>
+		<value></value>
+	</item>
+	<item id="19">
+		<name>Clear Quartz</name>
+		<type>Rock</type>
+		<desc>A transparent crystal which reflects the colors of the rainbow. :)</desc>
+		<edible>false</edible>
+		<white>10</white>
+		<blue></blue>
+		<green></green>
+		<yellow>25</yellow>
+		<orange></orange>
+		<red>30</red>
+		<violet>60</violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="20">
+		<name>Garnet</name>
+		<type>Rock</type>
+		<desc>Decorative and abraisive gem. Tends to stick together for a loooong time.</desc>
+		<edible>false</edible>
+		<white></white>
+		<blue>30</blue>
+		<green></green>
+		<yellow>20</yellow>
+		<orange></orange>
+		<red>50</red>
+		<violet>60</violet>
+		<black></black>
+		<value></value>
+	</item>
+	<item id="21">
+		<name>Pearl</name>
+		<type>Rock</type>
+		<desc>A small iridescent and valuable gemstone made most naturally by a clam putting it under lots of pressure.</desc>
+		<edible>false</edible>
+		<white>90</white>
+		<blue></blue>
+		<green></green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet>10</violet>
+		<black></black>
+		<value></value>
+		<comment>NOTE: THIS IS A RARE ITEM</comment>
+	</item>
+	<item id="22">
+		<name>Opal</name>
+		<type>Rock</type>
+		<desc>A sparkling multi-colored gem.</desc>
+		<edible>false</edible>
+		<white>12.5</white>
+		<blue>12.5</blue>
+		<green>12.5</green>
+		<yellow>12.5</yellow>
+		<orange>12.5</orange>
+		<red>12.5</red>
+		<violet>12.5</violet>
+		<black>12.5</black>
+		<value></value>
+	</item>
+	<item id="23">
+		<name>Amethyst</name>
+		<type>Rock</type>
+		<desc>A purple gem used popularly in jewelry. Is usually flawed.</desc>
+		<edible>false</edible>
+		<white>20</white>
+		<blue></blue>
+		<green></green>
+		<yellow></yellow>
+		<orange></orange>
+		<red></red>
+		<violet>60</violet>
+		<black>20</black>
+		<value></value>
+	</item>
+</items>

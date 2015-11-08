@@ -1,19 +1,24 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+
 using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections.Generic;
+using System.Xml;
 
 public class GameController : MonoBehaviour {
 
 	public static GameController control; // access with GameController.control
 	public GameObject BeginGame;
 	public PlayerData playerData;
-
+	public Canvas myCanvas;
+	public Camera myCamera;
+	public GameObject itemPrefab;
 	public GameObject potion;
-
 	public Text timeDisplay;
+	private XmlDocument items;
 
 	void Awake () {
 		// there can only be one time controller.
@@ -24,19 +29,23 @@ public class GameController : MonoBehaviour {
 			Destroy (gameObject);
 		}
 
+		//for testing saves:
+		File.Delete(Application.persistentDataPath + "/playerInfo.dat");
+
 		if (!Load ()){
 			// new game	
-			BeginGame.SetActive (true);
-
+			print ("**no save file**");
+			BeginGame.SetActive (true); // TODO fix beginning of game loading... NavScript is stopping it from becoming active
+			//NavigationScript test = (NavigationScript)myCamera.GetComponent(typeof(NavigationScript));
+			//test.deactivateAll(); gameObject.GetComponent<Text>() ??
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
-		//for testing saves:
-		//File.Delete(Application.persistentDataPath + "/playerInfo.dat");
-
 		timeDisplay.text = System.DateTime.Now.ToShortTimeString();
+		items = new XmlDocument();
+		items.Load("assets/items.xml"); //TODO will this be fine on the phone??
 		InvokeRepeating("TimeUpdate", 0, 1.0f);
 	}
 
@@ -45,26 +54,117 @@ public class GameController : MonoBehaviour {
 		if (System.DateTime.Now.Minute == 0 && System.DateTime.Now.Second == 0) {
 			if (System.DateTime.Now.Hour == 0){
 				// it's midnight
-			
 				DailyUpdate();
 			}
 		}
-
-		//print (witchName.ToString());
 		timeDisplay.text = System.DateTime.Now.ToString ();
 	}
 
 	void DailyUpdate(){
 		// grow plants, update world...
-		//Vector3 location = new Vector3()
-		GameObject drop = (GameObject)Instantiate(potion, new Vector3(0,1,2), Quaternion.identity);
-		drop.SetActive(true);
+		//spawnItem(9);
 		return;
 	}
 
-	// Update is called once per frame
-	void Update () {
+	void spawnItem(int id){
+		GameObject item = (GameObject)Instantiate(itemPrefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+		item.transform.SetParent (myCanvas.transform);
+		SpawnedItem script = (SpawnedItem) item.GetComponent<SpawnedItem>();
+		script.setID(id);
+		item.GetComponent<Button>().onClick.AddListener(delegate {
+			addToInventory(script.id);
+		});
+	}
 
+	Item FindItemInXml(int id){
+		Item itemFound = new Item();
+		string findMe = "//item[@id='" + id + "']";
+		XmlNodeList nodes = items.SelectNodes(findMe);
+		if (nodes.Count == 1){ // it better be...
+			XmlNode myNode = nodes[0];
+			
+			// copy the info from the full item file!
+			itemFound.id = id;
+			itemFound.name = myNode.ChildNodes[0].InnerText;
+			itemFound.type = myNode.ChildNodes[1].InnerText;
+			itemFound.description = myNode.ChildNodes[2].InnerText;
+			itemFound.edible = Convert.ToBoolean(myNode.ChildNodes[3].InnerText);
+			itemFound.white = myNode.ChildNodes[4].InnerText;
+			itemFound.blue = myNode.ChildNodes[5].InnerText;
+			itemFound.green = myNode.ChildNodes[6].InnerText;
+			itemFound.yellow = myNode.ChildNodes[7].InnerText;
+			itemFound.orange = myNode.ChildNodes[8].InnerText;
+			itemFound.red = myNode.ChildNodes[9].InnerText;
+			itemFound.violet = myNode.ChildNodes[10].InnerText;
+			itemFound.black = myNode.ChildNodes[11].InnerText;
+			itemFound.value = myNode.ChildNodes[12].InnerText;
+			
+			//print ("Item found: " + itemFound.ToString());
+			
+		}
+		else {
+			print ("item not found");
+			itemFound = null;
+		}
+		return itemFound;
+	}
+
+	public void addToInventory(int id){
+		if (playerData.InventoryData == null){
+			// never had an item before, initialize the array!
+			playerData.InventoryData = new ArrayList();
+		}
+		Item existingItem = FindInInventory(id);
+		if (existingItem != null){
+			// item already in inventory
+			playerData.InventoryData.Remove(existingItem);
+			// increase quantity and re-add
+			existingItem.quantity += 1;
+			playerData.InventoryData.Add(existingItem);
+		}
+		else{
+			// get the item info, it's new
+			Item item = FindItemInXml(id);
+			item.quantity = 1;
+			playerData.InventoryData.Add(item);
+		}
+		// TODO destroy the item we clicked.
+
+		printInventory();
+		//Save ();
+	}
+
+	Item FindInInventory(int id){
+		// returns the item if it exists in the inventory
+		print ("find item in inventory " + playerData.InventoryData);
+		foreach(Item i in playerData.InventoryData){
+			if (i.id == id){
+				return i;
+			}
+		}
+		return null;
+
+	}
+
+	void printInventory(){
+		if (playerData.InventoryData == null){
+			print ("Inv is null");
+			return;
+		}
+		print("ITEMS IN INVENTORY \n ------------------------- \n");
+		foreach (Item i in playerData.InventoryData){
+			print(i.ToString() + "\n");
+		}
+
+	}
+
+	void loopAllXml(){
+		foreach(XmlNode node in items.DocumentElement.ChildNodes){ // get all item nodes in items
+			
+			foreach(XmlNode tag in node.ChildNodes){ // get all tags within item
+				print (tag.InnerText);
+			}
+		} 
 	}
 
 	public void Save(){
@@ -75,11 +175,12 @@ public class GameController : MonoBehaviour {
 		data.startDate = playerData.startDate;
 		data.witchName = playerData.witchName;
 		data.witchType = playerData.witchType;
+		data.InventoryData = playerData.InventoryData;
 
 		bf.Serialize(file, data);
 		file.Close ();
 		print ("game saved");
-		Load ();
+		//Load ();
 	}
 
 	public bool Load(){
@@ -93,6 +194,8 @@ public class GameController : MonoBehaviour {
 			playerData.witchName = data.witchName;
 			playerData.startDate = data.startDate;
 			playerData.witchType = data.witchType;
+			playerData.InventoryData = data.InventoryData;
+			printInventory();
 
 			print ("game loaded");
 			return true;
@@ -104,7 +207,7 @@ public class GameController : MonoBehaviour {
 
 	public void OnApplicationQuit() {
 		// save before quitting.
-		//Save ();
+		Save ();
 	}
 }
 
@@ -116,5 +219,32 @@ public class PlayerData{
 	// TODO
 	public string witchName;
 	public string witchType;
+	public ArrayList InventoryData;
+
+}
+
+[Serializable]
+public class Item{
+	public int id;
+	public int quantity;
+
+	public string name;
+	public string type;
+	public string description;
+	public bool edible;
+	public string white;
+	public string blue;
+	public string green;
+	public string yellow;
+	public string orange;
+	public string red;
+	public string violet;
+	public string black;
+	public string value;
+
+	public override string ToString ()
+	{
+		return "NAME: " + name + ", QUANTITY: " + quantity + ", ID: " + id;
+	}
 
 }

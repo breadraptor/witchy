@@ -13,20 +13,6 @@ public class CanvasBehavior : MonoBehaviour, IHasChanged {
 		HasChanged ();
 	}
 
-	public void onBackpackClick(){
-		this.transform.FindChild("Inventory").gameObject.SetActive(true);
-		print ("backpackclicked");
-	}
-
-	public void onCauldronClick(){
-		this.transform.FindChild("MakePotion").gameObject.SetActive(true);
-		print ("cauldronclicked");
-	}
-
-	public void onBackClick(){
-		this.transform.FindChild ("MakePotion").gameObject.SetActive(false);
-	}
-	
 	public void onBrewClick(){
 		// combine the three ingredients
 		
