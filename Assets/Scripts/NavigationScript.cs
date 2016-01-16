@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NavigationScript : MonoBehaviour {
 
@@ -14,8 +15,18 @@ public class NavigationScript : MonoBehaviour {
 		potion = false;
 		inventory = false;
 		beginning = false;
-		main = true;
-		menuNavigation();
+		main = false;
+	}
+
+	public void onBeginning(string opt){
+		if (opt.Equals("main")){
+			main = true;
+		}
+		else {
+			// begin game script
+			beginning = true;
+		}
+		menuNavigation ();
 	}
 
 	public void menuNavigation(){
@@ -24,7 +35,7 @@ public class NavigationScript : MonoBehaviour {
 			canvas.transform.Find ("InventoryButton").gameObject.SetActive(true);
 			canvas.transform.Find ("Cauldron").gameObject.SetActive(true);
 			canvas.transform.Find ("ToBeachButton").gameObject.SetActive(true);
-			//canvas.transform.Find ("TestItem").gameObject.SetActive(true);
+			canvas.transform.Find ("main room").gameObject.SetActive(true);
 		}
 		if (potion){
 			deactivateAll();
@@ -32,13 +43,22 @@ public class NavigationScript : MonoBehaviour {
 		}
 		if (inventory){
 			deactivateAll();
-			canvas.transform.Find("Inventory").gameObject.SetActive(true);
+			GameObject inv = canvas.transform.Find("Inventory").gameObject;
+			inv.SetActive(true);
+			// this is to make sure the inventory is re-populated every single time it's opened.
+			InventoryScript script = (InventoryScript) inv.GetComponent<InventoryScript>();
+			script.populateInventory();
+		}
+		if (beginning){
+			deactivateAll ();
+			canvas.transform.FindChild ("NameUI").gameObject.SetActive(true);
+			canvas.transform.FindChild ("BeginGame").gameObject.SetActive(true);
 		}
 
 	}
 
 	public void onToBeachButtonClick(){
-		Application.LoadLevel ("beach");
+		SceneManager.LoadScene("beach");
 	}
 
 	public void onInventoryButtonClick(){

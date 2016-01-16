@@ -9,6 +9,7 @@ public class BeginGameScript : MonoBehaviour {
 	public string witchType;
 	public string witchName;
 
+	public Camera myCamera;
 	public GameObject NameUI;
 	public GameObject canvas;
 	public GameObject QuizPrefab;
@@ -246,6 +247,8 @@ public class BeginGameScript : MonoBehaviour {
 		GameController.control.playerData.witchType = witchType;
 		GameController.control.playerData.startDate = startDate;
 		GameController.control.Save (); 
+		NavigationScript nav = (NavigationScript)myCamera.GetComponent(typeof(NavigationScript));
+		nav.onBeginning ("main");
 
 	}
 }

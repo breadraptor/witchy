@@ -30,14 +30,16 @@ public class GameController : MonoBehaviour {
 		}
 
 		//for testing saves:
-		File.Delete(Application.persistentDataPath + "/playerInfo.dat");
+		//File.Delete(Application.persistentDataPath + "/playerInfo.dat");
 
+		NavigationScript nav = (NavigationScript)myCamera.GetComponent(typeof(NavigationScript));
 		if (!Load ()){
 			// new game	
 			print ("**no save file**");
-			BeginGame.SetActive (true); // TODO fix beginning of game loading... NavScript is stopping it from becoming active
-			//NavigationScript test = (NavigationScript)myCamera.GetComponent(typeof(NavigationScript));
-			//test.deactivateAll(); gameObject.GetComponent<Text>() ??
+			nav.onBeginning("new");
+		}
+		else {
+			nav.onBeginning ("main");
 		}
 	}
 
@@ -51,8 +53,8 @@ public class GameController : MonoBehaviour {
 
 	// TimeUpdate is called every second
 	void TimeUpdate(){ 
-		if (System.DateTime.Now.Minute == 0 && System.DateTime.Now.Second == 0) {
-			if (System.DateTime.Now.Hour == 0){
+		if (System.DateTime.Now.Minute == 17 && System.DateTime.Now.Second == 15) {
+			if (System.DateTime.Now.Hour == 14){
 				// it's midnight
 				DailyUpdate();
 			}
@@ -62,7 +64,10 @@ public class GameController : MonoBehaviour {
 
 	void DailyUpdate(){
 		// grow plants, update world...
-		//spawnItem(9);
+		for (int i = 0; i < 20; i++){
+			spawnItem(1);
+			spawnItem (2);
+		}
 		return;
 	}
 
@@ -73,6 +78,8 @@ public class GameController : MonoBehaviour {
 		script.setID(id);
 		item.GetComponent<Button>().onClick.AddListener(delegate {
 			addToInventory(script.id);
+			// item disappears when it's picked up
+			Destroy (item);
 		});
 	}
 
@@ -128,7 +135,6 @@ public class GameController : MonoBehaviour {
 			item.quantity = 1;
 			playerData.InventoryData.Add(item);
 		}
-		// TODO destroy the item we clicked.
 
 		printInventory();
 		//Save ();
@@ -146,7 +152,7 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	void printInventory(){
+	public void printInventory(){
 		if (playerData.InventoryData == null){
 			print ("Inv is null");
 			return;
@@ -227,7 +233,7 @@ public class PlayerData{
 public class Item{
 	public int id;
 	public int quantity;
-
+	
 	public string name;
 	public string type;
 	public string description;
@@ -241,10 +247,10 @@ public class Item{
 	public string violet;
 	public string black;
 	public string value;
-
+	
 	public override string ToString ()
 	{
 		return "NAME: " + name + ", QUANTITY: " + quantity + ", ID: " + id;
 	}
-
+	
 }
