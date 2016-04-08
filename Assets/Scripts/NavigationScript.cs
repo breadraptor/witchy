@@ -43,11 +43,12 @@ public class NavigationScript : MonoBehaviour {
 		}
 		if (inventory){
 			deactivateAll();
-			GameObject inv = canvas.transform.Find("Inventory").gameObject;
+            GameObject inv = canvas.transform.Find("Inventory").gameObject;
 			inv.SetActive(true);
+
 			// this is to make sure the inventory is re-populated every single time it's opened.
-			InventoryScript script = (InventoryScript) inv.GetComponent<InventoryScript>();
-			script.populateInventory();
+			//InventoryScript script = (InventoryScript) inv.GetComponent<InventoryScript>();
+            //script.OnGui();
 		}
 		if (beginning){
 			deactivateAll ();

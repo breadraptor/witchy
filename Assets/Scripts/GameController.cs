@@ -53,8 +53,8 @@ public class GameController : MonoBehaviour {
 
 	// TimeUpdate is called every second
 	void TimeUpdate(){ 
-		if (System.DateTime.Now.Minute == 17 && System.DateTime.Now.Second == 15) {
-			if (System.DateTime.Now.Hour == 14){
+		if (System.DateTime.Now.Minute == 27 && System.DateTime.Now.Second == 15) {
+			if (DateTime.Now.Hour == 14){
 				// it's midnight
 				DailyUpdate();
 			}
@@ -63,11 +63,13 @@ public class GameController : MonoBehaviour {
 	}
 
 	void DailyUpdate(){
-		// grow plants, update world...
-		for (int i = 0; i < 20; i++){
-			spawnItem(1);
-			spawnItem (2);
-		}
+        // grow plants, update world...
+        spawnItem(1);
+        spawnItem(2);
+        spawnItem(2);
+        spawnItem(9);
+        spawnItem(11);
+        spawnItem(20);
 		return;
 	}
 
