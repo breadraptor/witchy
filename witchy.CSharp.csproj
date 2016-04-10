@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EE4489DF-90A8-A87D-9E5D-FE96CDF29F88}</ProjectGuid>
+    <ProjectGuid>{E9FD1EB7-6C6A-2642-AB84-AE3FC9242CA0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,17 +69,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Inventory.cs" />
     <Compile Include="Assets\Scripts\BeachScript.cs" />
     <Compile Include="Assets\Scripts\BeginGameScript.cs" />
     <Compile Include="Assets\Scripts\CanvasBehavior.cs" />
     <Compile Include="Assets\Scripts\DragHandler.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\HatController.cs" />
     <Compile Include="Assets\Scripts\InventoryScript.cs" />
     <Compile Include="Assets\Scripts\NavigationScript.cs" />
     <Compile Include="Assets\Scripts\ObjectScript.cs" />
     <Compile Include="Assets\Scripts\PermanentCanvasScript.cs" />
     <Compile Include="Assets\Scripts\Slot.cs" />
     <Compile Include="Assets\Scripts\SpawnedItem.cs" />
+    <Compile Include="Assets\Scripts\TimeController.cs" />
+    <Compile Include="Assets\Scripts\ToBeach.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\items.xml" />

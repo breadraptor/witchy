@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Witchy.CSharp", "Witchy.CSharp.csproj", "{EE4489DF-90A8-A87D-9E5D-FE96CDF29F88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "witchy.CSharp", "witchy.CSharp.csproj", "{E9FD1EB7-6C6A-2642-AB84-AE3FC9242CA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE4489DF-90A8-A87D-9E5D-FE96CDF29F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE4489DF-90A8-A87D-9E5D-FE96CDF29F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE4489DF-90A8-A87D-9E5D-FE96CDF29F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE4489DF-90A8-A87D-9E5D-FE96CDF29F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9FD1EB7-6C6A-2642-AB84-AE3FC9242CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9FD1EB7-6C6A-2642-AB84-AE3FC9242CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9FD1EB7-6C6A-2642-AB84-AE3FC9242CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9FD1EB7-6C6A-2642-AB84-AE3FC9242CA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -53,8 +53,8 @@ public class GameController : MonoBehaviour {
 
 	// TimeUpdate is called every second
 	void TimeUpdate(){ 
-		if (System.DateTime.Now.Minute == 27 && System.DateTime.Now.Second == 15) {
-			if (DateTime.Now.Hour == 14){
+		if (System.DateTime.Now.Minute == 24 && System.DateTime.Now.Second == 15) {
+			if (DateTime.Now.Hour == 13){
 				// it's midnight
 				DailyUpdate();
 			}
