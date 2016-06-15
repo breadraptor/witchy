@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour {
 
 	// TimeUpdate is called every second
 	void TimeUpdate(){ 
-		if (System.DateTime.Now.Minute == 24 && System.DateTime.Now.Second == 15) {
+		if (System.DateTime.Now.Minute == 50 && System.DateTime.Now.Second == 15) {
 			if (DateTime.Now.Hour == 13){
 				// it's midnight
 				DailyUpdate();
@@ -179,7 +179,7 @@ public class GameController : MonoBehaviour {
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create (Application.persistentDataPath + "/playerInfo.dat");
 		PlayerData data = new PlayerData();
-		// TODO: data filling goes here
+		// data filling goes here
 		data.startDate = playerData.startDate;
 		data.witchName = playerData.witchName;
 		data.witchType = playerData.witchType;
@@ -198,7 +198,7 @@ public class GameController : MonoBehaviour {
 			PlayerData data = (PlayerData)bf.Deserialize(file); // creates an object
 			file.Close();
 
-			// TODO: set local data to the data we pulled from the file
+			// set local data to the data we pulled from the file
 			playerData.witchName = data.witchName;
 			playerData.startDate = data.startDate;
 			playerData.witchType = data.witchType;
@@ -224,7 +224,7 @@ public class PlayerData{
 	// serialized class
 	// public data....
 	public System.DateTime startDate;
-	// TODO
+
 	public string witchName;
 	public string witchType;
 	public ArrayList InventoryData;

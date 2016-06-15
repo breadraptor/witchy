@@ -5,6 +5,7 @@ public class InventoryScript : MonoBehaviour
 {
 
     public GameController control;
+    //public InventoryScript inv;
     public ArrayList ItemPics;
 
     private int inventoryWidth = 5;
@@ -12,11 +13,27 @@ public class InventoryScript : MonoBehaviour
     private int spacing = 40;
     private Vector2 offset = new Vector2(60, 40); //start position
 
+    int runOnce; //to only populate inventory once
     //description window
     private Vector2 descOffset = new Vector2(Screen.width - 500, Screen.height - 100);
 
+    void Awake(){
+        //DontDestroyOnLoad(gameObject);
+        
+    }
+    /*void Start() {
+        //populateInventory();
+        runOnce = 0;
+    }
     public void OnGUI()
     {
+        if (runOnce == 0) {
+            populateInventory();
+            runOnce = 1;
+        }
+    } */
+
+    public void OnGUI() {
         populateInventory();
     }
 
@@ -24,27 +41,33 @@ public class InventoryScript : MonoBehaviour
     {
         if (ItemPics == null)
         {
+            // first time looking at inventory, not necessarily no items inside.
             print("itempics initialized");
             ItemPics = new ArrayList();
         }
-        // this loops through displayInventory to check for dups, and loops through InventoryData. efficiency?
-        // loop through all the items
-        foreach (Item i in control.playerData.InventoryData)
-        {
-            if (!isDuplicate(i.id))
+        if (control.playerData.InventoryData == null) {
+            // no items
+            print("no items initialized");
+        }
+        else { 
+            // this loops through displayInventory to check for dups, and loops through InventoryData. efficiency?
+            // loop through all the items
+            foreach (Item i in control.playerData.InventoryData)
             {
-                DisplayItem di = new DisplayItem();
-                Texture itemPic = Resources.Load(i.id.ToString(), typeof(Texture)) as Texture;
-                di.id = i.id;
-                di.pic = itemPic;
-                di.name = i.name;
-                di.amount = i.quantity;
-                di.desc = i.description;
-                //add new item to the array
-                ItemPics.Add(di);
+                if (!isDuplicate(i.id))
+                {
+                    DisplayItem di = new DisplayItem();
+                    Texture itemPic = Resources.Load(i.id.ToString(), typeof(Texture)) as Texture;
+                    di.id = i.id;
+                    di.pic = itemPic;
+                    di.name = i.name;
+                    di.amount = i.quantity;
+                    di.desc = i.description;
+                    //add new item to the array
+                    ItemPics.Add(di);
+                }
             }
         }
-
         displayItems();
     }
 

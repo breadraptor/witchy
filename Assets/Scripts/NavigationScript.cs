@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 public class NavigationScript : MonoBehaviour {
 
 	public Canvas canvas;
+    public Canvas permanentCanvas;
+    public NavigationScript nav;
 	public bool inventory = false;
 	public bool potion = false;
 	public bool main = false;
 	public bool beginning = false;
 
-	
+	void Awake(){
+        if (nav == null) {
+            DontDestroyOnLoad(gameObject);
+            nav = this;
+        }
+    }
+
 	void Start () {
 		potion = false;
 		inventory = false;
@@ -37,11 +45,11 @@ public class NavigationScript : MonoBehaviour {
 			canvas.transform.Find ("ToBeachButton").gameObject.SetActive(true);
 			canvas.transform.Find ("main room").gameObject.SetActive(true);
 		}
-		if (potion){
+		else if (potion){
 			deactivateAll();
 			canvas.transform.Find ("MakePotion").gameObject.SetActive(true);
 		}
-		if (inventory){
+		else if (inventory){
 			deactivateAll();
             GameObject inv = canvas.transform.Find("Inventory").gameObject;
 			inv.SetActive(true);
@@ -50,7 +58,7 @@ public class NavigationScript : MonoBehaviour {
 			//InventoryScript script = (InventoryScript) inv.GetComponent<InventoryScript>();
             //script.OnGui();
 		}
-		if (beginning){
+		else if (beginning){
 			deactivateAll ();
 			canvas.transform.FindChild ("NameUI").gameObject.SetActive(true);
 			canvas.transform.FindChild ("BeginGame").gameObject.SetActive(true);
@@ -63,7 +71,7 @@ public class NavigationScript : MonoBehaviour {
 	}
 
 	public void onInventoryButtonClick(){
-		main = false;
+        main = false;
 		inventory = true;
 		menuNavigation();
 	}
@@ -74,6 +82,7 @@ public class NavigationScript : MonoBehaviour {
 	}
 
 	public void onBackClick(){
+        //TODO fix this... it needs to go back to wherever you were. (scene)
 		main = true;
 		potion = false;
 		inventory = false;
@@ -81,9 +90,12 @@ public class NavigationScript : MonoBehaviour {
 	}
 
 	public void deactivateAll(){
-		foreach (Transform child in canvas.transform){
-			child.gameObject.SetActive(false);
-		}
-	}
+        if (canvas != null) { 
+		    foreach (Transform child in canvas.transform){
+			    child.gameObject.SetActive(false);
+		    }
+        }
+        
+    }
 
 }
